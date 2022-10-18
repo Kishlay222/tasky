@@ -1,0 +1,24 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    background-color: beige !important;
+}
+
+.add_new_btn_mbl{
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    padding: 15px 10px;
+    background-color: azure;
+    z-index: 2; /*for layering higher the layer high visible*/
+    width: 100%;/*to use full area*/
+}
+
+/*@media (min-width:800px){
+    .add_new_btn_mbl{
+        display: none;
+    }
+} */
