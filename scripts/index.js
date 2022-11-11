@@ -28,11 +28,11 @@ const htmlTaskContent = ({ id, title, description, url, type }) => `
               `
                 }
                 <h4 class='task__card__title'>${title}</h4>
-                <p class='description trim-3-lines text muted'>${description}</p>
+                <p class='description trim-3-lines text'>${description}</p>
                 <div class='tags d-flex'><span class='badge bg-primary m-1'>${type}</span></div>
             </div>
             <div class='card-footer'>
-                <button class='btn btn-outline-primary float-right' type='button' data-bs-toggle='modal' data-bs-target='#showTask' id=${id} onclick="openTask.apply(this, arguments)" >
+                <button type='button' class='btn btn-outline-primary float-right' data-bs-toggle='modal' data-bs-target='#showTask' id=${id} onclick='openTask.apply(this, arguments)' >
                     Open Task 
                 </button>
             </div>
@@ -156,7 +156,7 @@ const deleteTask = (e) => {
   } //else
   //the icon which is inside btn
   //so,1 step further inside than btn
-  return e.target.parentNode.parentNode.parentNode.parentNode.removeChild(
+  return e.target.parentNode.parentNode.parentNode.parentNode.parentNode.removeChild(
     e.target.parentNode.parentNode.parentNode.parentNode
   );
 };
