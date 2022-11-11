@@ -18,19 +18,20 @@
 <body onload="loadInitialData()">
     <!--to fully-->
 
-    <div class="add_new_btn_mbl d-md-none">
+    <div class="add__new__btn__mbl d-md-none">
         <!-- d-md-none to show only for smaller screen or can use media query in css -->
-        <button class="btn btn-primary" type="submit" data-bs-toggle="modal" data-bs-target="#newModal">
+        <button class="btn btn-primary d-flex align-items-center gap-2" type="submit" data-bs-toggle="modal"
+            data-bs-target="#addNewModal">
             <i class='fas fa-plus'></i> Add New</button>
         <!--primary-blue col $ for smaller screen-->
     </div>
 
-    <div class="modal fade" id="newModal" tabindex="-1" aria-labelledby="newModalLabel" aria-hidden="true">
+    <div class="modal fade" id="addNewModal" tabindex="-1" aria-labelledby="addNewModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <!--dialog centered is for vertical showing in middle-->
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="newModalLabel">Add New Task</h1>
+                    <h1 class="modal-title fs-5" id="addNewModalLabel">Add New Task</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -40,13 +41,13 @@
                     <form onsubmit="return false">
                         <!--when we r nt submitting our data anywhere-->
                         <div class="mb-3">
-                            <label for="imageurl" class="form-label">Image Url</label>
-                            <input type="url" class="form-control" id="imageurl" aria-describedby="imagehelp"
+                            <label for="imageUrl" class="form-label">Image Url</label>
+                            <input type="url" class="form-control" id="imageUrl" aria-describedby="imagehelp"
                                 placeholder="http://image.png" required>
                         </div>
                         <div class="mb-3">
-                            <label for="tasktitle" class="form-label">Task Title</label>
-                            <input type="text" class="form-control" id="tasktitle" aria-describedby="taskhelp"
+                            <label for="taskTitle" class="form-label">Task Title</label>
+                            <input type="text" class="form-control" id="taskTitle" aria-describedby="taskhelp"
                                 placeholder="add task" required>
                         </div>
                         <div class="mb-3">
@@ -55,17 +56,18 @@
                                 placeholder="domain of task" required>
                         </div>
                         <div class="mb-3">
-                            <label for="taskdescription" class="form-label">Task Description</label>
-                            <textarea class="form-control" placeholder="Leave something abt your task.."
+                            <label for="taskDescription" class="form-label">Task Description</label>
+                            <textarea class="form-control" placeholder="Leave something abt your task.." rows="3"
                                 id="taskdescription" style="height: 120px" required></textarea>
                         </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="submit" type="button" class="btn btn-primary" onclick="handleSubmit()">Save
-                                changes</button>
-                            <!-- type-sumit works under 'form' not outside -->
-                            <!-- on click is event handler  -->
-                        </div>
+
+
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" type="button" class="btn btn-primary" onclick="handleSubmit()">Save
+                            changes</button>
+                        <!-- type-sumit works under 'form' not outside -->
+                        <!-- on click is event handler  -->
+
                     </form>
                 </div>
             </div>
@@ -76,9 +78,10 @@
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="showTaskLabel">Task Details</h1>
+                    <h3 class="modal-title fs-5" id="showTaskLabel">Task Details</h3>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body task_modal_body">
+                <div class="modal-body task__modal__body">
                     <!--connects js of taskModal-->
                 </div>
                 <div class="modal-footer">
@@ -98,7 +101,7 @@
                 <span class="navbar-toggler-icon"></span> <!-- menu button -->
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <ul class="navbar-nav me-auto ">
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="#">Home</a>
                     </li>
@@ -116,7 +119,7 @@
                 <div class="col-md-6">
                     <div class="input-group flex-nowrap">
                         <input type="search" class="form-control" placeholder="search task.." aria-label="search task"
-                            aria-describedby="addon-wrapping" />
+                            aria-describedby="addon-wrapping" oninput="searchTask.apply(this, arguments)" />
                         <span class="input-group-text" id="addon-wrapper">
                             <i class="fas fa-search"></i>
                         </span>
@@ -126,7 +129,7 @@
         </section>
 
         <section class="mt-4">
-            <div class="row task_contents">
+            <div class="row task__contents">
             </div>
         </section>
     </div>
